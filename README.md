@@ -26,9 +26,20 @@ list[i:j+1] = list[j:i-1:-1]\
 추가\
 list.append("0")
 
+a = [abc]*2
+a = a*2
+a = [[abc],[abc]]
+a[0][0] = a
+
 # python_반복 for, while
 while True:\
     try:\
         A, B = map(int,input().split())\
     except:\
         break
+
+# python_기타
+진법변환 10>bin(2),oct(8),hex(16)\
+print(bin(10)[2:])\
+10<\
+print(int('1010',2))
