@@ -93,11 +93,12 @@ python_백준_분수찾기
             System.out.println("Hello,World!");  출
         }
     }
-+ println=printline
++ println=printline 을 의미함
 + psvm 입력 또는 main 입력
-+ sout 입력
-+ shift+f10 실행단축키
++ sout 입력, fori 입력
++ shift+f10 실행
 + ctrl+d 복붙
++ shift+tab 탭 이전, ctrl+alt+l 탭 정렬
 + 주석\
 // (ctrl+/)\
 /* 주석 */ (ctrl+shift+/)
@@ -187,7 +188,7 @@ python_백준_분수찾기
 
 문자열
 
-    println(s.length());
+    println(s.length()); //글자수
 
     대소문자 변환
     println(s.toUpperCase());
@@ -204,6 +205,7 @@ python_백준_분수찾기
 
     println(s.replace("and",",")); 문자를 문자로 변환
     
+    println(s.substring(0,7)); 이 위치 전까지 문장을 출력
     println(s.substring(7)); 이 위치부터 문장을 출력
     println(s.substring(s.indexOf("java"))); 이 문자부터 출력
     println(s.substring(s.indexOf("java"),s.indexOf("."))); 문자부터 문자까지 출력
@@ -389,7 +391,62 @@ while
         String number = "010-1234-1234"
         return number;    
         }
-        public..main(..) {
+        public static void main(String[] args) {
             String contactNumber = getNumber();
-            System..ln("호텔 전화번호:"+contactNumber)
+            System.out.println("호텔 전화번호:"+contactNumber)
         }
+
++ 전달값과 반환값
+
+        public static int getPower(int number) {
+            int result = number * number;
+            return result;
+        }
+
+        public staric int getPowerByExp(int number, int exponent) {
+            int result =1;
+            for (int i = 0; i < exponent; i++) {
+                result *= number;
+            } return result;
+        }
+
+        public static void main(String[] args) {
+            int reVal = getPower(2); // 2*2= 4
+            System.out.pringln(retval);
+            
+            reVal = getPowerByExp(3,3); // 3*3*3= 27
+            System.out.pringln(retval);
+
+            System.out.println(getPowerByExp(2,4)) 2*2*2*2 = 16
+        }
+
+메소드 오버로딩
+
+    public static int getPower(int number) {}
+    public static int getpower(String strnum) {}
+    public static int getpower(int number, int exponent) {}
+    위처럼 자료형(type)이 다르거나 전달값 개수가 다른 여러개의 메소드의 이름을 같게 지정할 수 있다.
+    단, 메소드를 정의하는 자료형은 다르게 할 수 없다.
+    main {
+    System.out.println(getPower(3)) //3*3= 9
+    System.out.println(getPower("4")) //4*4= 16
+    System.out.println(getPower(3,3)) //3*3*3= 27
+    }
++ 메소드 안에서 아래의 메소드를 호출
+
+        Public Static int getPower(int number){
+            return getPower(number,2);
+        } 
+        public Static int getPower(int number,int exponent){
+            int result = 1;
+            for (int i = 0; i < exponent; i++){
+                result *= number;
+            } return result;
+        }
+
+변수의 범위 :
++ public 영역에서 만든 변수 = 다른 영역 X.
++ for 문에서 사용된 변수 =  for문 밖 X.
++ {중괄호} 내에서 사용된 변수 = 중괄호 밖X
+
+main 메소드
