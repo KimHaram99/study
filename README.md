@@ -114,6 +114,8 @@ python_백준_분수찾기
     long l = 1000000000000L; 큰 숫자를 입력할 때 사용
     l = 1_000_000_000_000L
     
+    int i = 1, j = 2;
+    
 실수값(double,float)
 
     double score = 10.1; 정밀함
@@ -128,8 +130,10 @@ python_백준_분수찾기
     공백 불가
     예약어 불가
     
-    한번 정의되면 절대 변하지 않는 상수는 대문자로 정의
-    final String CODE = "KR";
++ '상수'는 대문자로 정의
+
+      한 번 저장. 절대 변하지 않는다.
+        final String CODE = "KR";
 
 형 변환
 
@@ -449,4 +453,133 @@ while
 + for 문에서 사용된 변수 =  for문 밖 X.
 + {중괄호} 내에서 사용된 변수 = 중괄호 밖X
 
-main 메소드
+main 메소드<유튜브참고>
+
+# 자바의정석 (이클립스)
+단축키
++ ctrl+shift+L 단축키 목록
++ ctrl+"+"."-" 화면크기
++ ctrl+d 한 줄 삭제
++ ctrl+alt+down 행 단위 복사
++ alt+shift+A 멀티컬럼 편집
++ alt+up, down 행단위 이동
++ tap, shift+tap, ctrl+i 들여쓰기
++ ctrl+/ 주석(토글)
++ ctrl+space 자동완성
+
+변수(variable): 하나의 값을 저장하는 공간\
+상수(constant): 값을 한 번 저장하는 공간\
+리터럴(literal): 값
++ 변수(그릇)보다 리터럴이 큰 경우 에러
+
+리터럴의 접두사와 접미사 조건
+- 변수 기본형(Primitive type): 8개 고정
+        + 실제 값을 저장
+
+       (1) 논리 boolean: true or false
+       
+       (2) 문자형 ch: '' 한글자를 무조건 입력, 유니코드(2byte), 양수값 = 부호없는 정수범위.
+
+       (1) 정수 byte: 127까지만 저장가능한 int 타입
+       (2) 정수 short: 없음/C언어 호환용
+       (4) 정수(integer): 없음
+         int i = 100 10진수
+         int i = 0b01 2진수(0b)
+         int oct = 010 8진수(0)
+         int hex = 0x10 16진수(0x)
+       (8) 정수(Long): L
+         long i = 100; L생략가능
+         long i = 10_000_000_000L; L생략불가
+         int값이 20억까지 저장가능.
+      
+       (4) 실수(float): f/부동소수점(떠다닌다는 뜻), 정밀도7자리
+       (8) 실수(double): d 생략가능/정밀함, 정밀도15자리
+        System.out.println(10.) 혹은 .10 사용가능
+        System.out.println(1e3) = 10^3 = 1000.0
+        System.out.println(10f) = 10.0
+
+      정수 범위(8비트의 경우)
+      0 ~ 2^n-1 = 0~255
+      -2^(n-1) ~ 2^(n-1)-1 = -128~127
+      
+      부호비트S(Sign bit): 양수=0, 음수=1, 음수포함인경우 S표시
+- 변수 참조형(Reference type): String, System 등 무한 추가 가능\
+        + 메모리 주소를 저장 (4byte{32bit JVM}=40억 또는 8byte{64bit JVM}=40*40=1600)
+
+       문자열 str: "" 빈 문자열 가능
+
+# printf()
+println() 단점
++ 출력형식 지정불가
++ 실수 자리수 조절 불가
++ 10진수로만 출력
+
+# 지시자를 통한 출력형식
+%n 지시자 뒤에 붙이면 줄바꿈\
+지시자 앞에 숫자 = 자리수(오른쪽정렬/음수=왼쪽정렬)\
+지시자 앞의 숫자앞에 문자또는 숫자 = 빈공간에 입력\
+지시자 s 앞에 .숫자 = 부분출력
+
+    printf("d=%전체자리.소수점아래자리f%n",d)
+
++ printf("%.2f"10.0/3); // 3.33f 소수점2자리표현
+    
++       %B oolean 불리언
+
++       %D ecimeal 10진
+        %O ctal 8진
+        %he X a-decimal 16진
+
++       %F loating-point 부동소수점
+        %E xponent 지수
+
++       %C haracter 문자
+        %S tring 문자열
+
++       정수를 16진수로 출력
+        ('%x", 15); // f      
+
+        정수를 이진 문자열로 출력
+        ("%s",Integer.toBinaryString(15)); 
+        // 1111
+
+
+지시자 앞에 #을 붙이면 접두사를 포함해 출력
+        
+    System.out.printf("%x",15) // f
+    System.out.printf("%#x",15) // 0xf
+    System.out.printf("%#X",15) // 0xF
+
+실수 출력을 위한 지시자 %f - 지수형식( %e , 간략한 형식 %g )\
+ㄴ 실수를 출력할 때는 f, 0이 많이 사용된 경우 e를 사용.
+
++       float f = 123.4567890f;
+        System.out.printf("%f",f);
+            // 123.456787 (정밀함 7)
+
++       double f = 123.456789;
+        System.out.printf("%f",f);
+            // 123.456789 (정밀함 15)
+
++      System.out.printf("%e",f); // 1.234568e+02
+        %e: 마지막숫자는 반올림, e+01 = 10^2
+
++       System.out.printf("%g", 123.456789);
+            // 123.457 = 점포함 7자리, 반올림
+        System.out.printf("%g", 0.00000001); 
+            // 1.00000e-8
+
+# Scanner
+화면으로부터 데이터를 입력받는 기능을 제공하는 클래스
+
+    import java.util.Scanner; (Scanner 대신 *을 사용가능)
+    
+    스캐너 객체 생성
+    Scanner scanner = new Scanner (System.in) ;
+
+    사용
+    int num = scanner.nextInt() ;
+    
++       String input = scanner.nextLine() ;
+        int num = Integer.perseInt(input) ; 
+        // 문자열을 숫자로
