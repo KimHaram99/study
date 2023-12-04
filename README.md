@@ -583,3 +583,8 @@ println() 단점
 +       String input = scanner.nextLine() ;
         int num = Integer.perseInt(input) ; 
         // 문자열을 숫자로
+
+--------------------------------
+    
+문자열.contains();
+특정 문자열 존재여부 확인
