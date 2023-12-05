@@ -561,8 +561,8 @@ println() 단점
         System.out.printf("%f",f);
             // 123.456789 (정밀함 15)
 
-+      System.out.printf("%e",f); // 1.234568e+02
-        %e: 마지막숫자는 반올림, e+01 = 10^2
++       System.out.printf("%e",f); // 1.234568e+02
+        // %e: 마지막숫자는 반올림, e+01 = 10^2
 
 +       System.out.printf("%g", 123.456789);
             // 123.457 = 점포함 7자리, 반올림
@@ -572,12 +572,11 @@ println() 단점
 # Scanner
 화면으로부터 데이터를 입력받는 기능을 제공하는 클래스
 
-    import java.util.Scanner; (Scanner 대신 *을 사용가능)
+    import java.util.Scanner; //(Scanner 대신 *을 사용가능)
     
-    스캐너 객체 생성
-    Scanner scanner = new Scanner (System.in) ;
+스캐너 객체 생성
 
-    사용
+    Scanner scanner = new Scanner(System.in) ;
     int num = scanner.nextInt() ;
     
 +       String input = scanner.nextLine() ;
