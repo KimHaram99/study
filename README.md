@@ -476,37 +476,49 @@ main 메소드<유튜브참고>
 - 변수 기본형(Primitive type): 8개 고정
         + 실제 값을 저장
 
-       (1) 논리 boolean: true or false
+    (1) 논리 boolean: true or false
        
-       (2) 문자형 ch: '' 한글자를 무조건 입력, 유니코드(2byte), 양수값 = 부호없는 정수범위.
+    (2) 문자형 ch: '' 한글자를 무조건 입력, 유니코드(2byte), 양수값 = 부호없는 정수범위.
 
-       (1) 정수 byte: 127까지만 저장가능한 int 타입
-       (2) 정수 short: 없음/C언어 호환용
-       (4) 정수(integer): 없음
-         int i = 100 10진수
-         int i = 0b01 2진수(0b)
-         int oct = 010 8진수(0)
-         int hex = 0x10 16진수(0x)
-       (8) 정수(Long): L
+    (1) 정수 byte: 127까지만 저장가능한 int 타입
+  
+    (2) 정수 short: 없음/C언어 호환용
+  
+    (4) 정수(integer): 없음
+      
+         int i = 100 //10진수
+         int i = 0b01 //2진수(0b)
+         int oct = 010 //8진수(0)
+         int hex = 0x10 //16진수(0x)
+      
+    (8) 정수(Long): L
+    
          long i = 100; L생략가능
          long i = 10_000_000_000L; L생략불가
          int값이 20억까지 저장가능.
       
-       (4) 실수(float): f/부동소수점(떠다닌다는 뜻), 정밀도7자리
-       (8) 실수(double): d 생략가능/정밀함, 정밀도15자리
-        System.out.println(10.) 혹은 .10 사용가능
+    (4) 실수(float): f/부동소수점(떠다닌다는 뜻), 정밀도7자리
+    
+    (8) 실수(double): d 생략가능/정밀함, 정밀도15자리
+    
+        System.out.println(10.) //혹은 .10 사용가능
         System.out.println(1e3) = 10^3 = 1000.0
         System.out.println(10f) = 10.0
 
-      정수 범위(8비트의 경우)
+    정수 범위(8비트의 경우)
+
       0 ~ 2^n-1 = 0~255
       -2^(n-1) ~ 2^(n-1)-1 = -128~127
       
-      부호비트S(Sign bit): 양수=0, 음수=1, 음수포함인경우 S표시
-- 변수 참조형(Reference type): String, System 등 무한 추가 가능\
-        + 메모리 주소를 저장 (4byte{32bit JVM}=40억 또는 8byte{64bit JVM}=40*40=1600)
+    부호비트S(Sign bit): 양수=0, 음수=1, 음수포함인경우 S표시
 
-       문자열 str: "" 빈 문자열 가능
+- 변수 참조형(Reference type): String, System 등 무한 추가 가능\
+       
+    + 메모리 주소를 저장
+
+         (4byte{32bit JVM}=40억 또는 8byte{64bit JVM}=40*40=1600)
+
+        문자열 str: "" 빈 문자열 가능
 
 # printf()
 println() 단점
